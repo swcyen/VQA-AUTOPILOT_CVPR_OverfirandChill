@@ -6,10 +6,10 @@ from PIL import Image
 from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
 
 ############################################
-# CONFIG
+# CONFIG (do we really need this?)
 ############################################
 
-VIDEO_DIR = "videos"
+VIDEO_DIR = "/workspace/competitions/VQA-AUTOPILOT_CVPR/dataset/videos"
 MODEL_NAME = "Qwen/Qwen2-VL-7B-Instruct"
 
 NUM_OUTPUT_FRAMES = 8
@@ -18,6 +18,13 @@ GRID_COLS = 4
 
 DEVICE = "cuda"
 
+
+# Question loader
+
+import json
+
+with open("/workspace/competitions/VQA-AUTOPILOT_CVPR/playground/label_map.json", "r") as f:
+    QUESTIONS = json.load(f)
 
 ############################################
 # VIDEO LOADER
@@ -126,35 +133,64 @@ print("Model loaded.")
 # VQA FUNCTION
 ############################################
 
-def ask_vlm(image, question):
+def ask_vlm(image, question, options):
 
     img = Image.fromarray(image)
 
+    option_text = "\n".join([f"- {k}" for k in options.keys()])
+
     prompt = f"""
-You are analyzing frames from a driving video.
+Answer the question using ONLY one of the options.
 
-Question: {question}
+Question:
+{question}
 
-Answer with ONE WORD.
+Options:
+{option_text}
+
+Return ONLY the option text exactly.
 """
 
-    inputs = processor(
-        text=prompt,
-        images=img,
-        return_tensors="pt"
-    ).to(DEVICE)
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "image"},
+                {"type": "text", "text": prompt}
+            ]
+        }
+    ]
 
-    output = model.generate(
-        **inputs,
-        max_new_tokens=8
+    text = processor.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
     )
 
-    text = processor.batch_decode(
-        output,
-        skip_special_tokens=True
-    )[0]
+    inputs = processor(
+        text=[text],
+        images=[img],
+        padding=True,
+        return_tensors="pt"
+    )
 
-    return text.strip()
+    inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
+
+    with torch.inference_mode():
+        output = model.generate(
+            **inputs,
+            max_new_tokens=16,
+            synced_gpus=False
+        )
+
+    generated_ids = output[:, inputs["input_ids"].shape[-1]:]
+
+    response = processor.batch_decode(
+        generated_ids,
+        skip_special_tokens=True
+    )[0].strip()
+
+    return response
 
 
 ############################################
@@ -173,26 +209,73 @@ def process_video(video_path, question):
 
     return answer
 
+## ANSWER MAPPER
+def map_answer(text, answer_dict):
 
+    for k, v in answer_dict.items():
+        if k.lower() in text.lower():
+            return v
+
+    return answer_dict.get("Unknown", -1)
+
+# RUN ALL QUESTIONS
+def run_all_questions(video_path):
+
+    frames = load_video_frames(video_path)
+    frames = sample_frames(frames, NUM_OUTPUT_FRAMES)
+    grid = build_grid(frames)
+
+    results = {}
+
+    for qid, qdata in QUESTIONS.items():
+
+        question = qdata["question"]
+        answers = qdata["answers"]
+
+        raw = ask_vlm(grid, question, answers)
+        label = map_answer(raw, answers)
+
+        results[qid] = label
+
+    return results
+
+import os
+import json
+
+def process_dataset():
+
+    all_results = {}
+
+    videos = sorted(os.listdir(VIDEO_DIR))
+
+    for vid in videos:
+
+        if not vid.endswith(".mp4"):
+            continue
+
+        video_path = os.path.join(VIDEO_DIR, vid)
+
+        print("Processing:", vid)
+
+        answers = run_all_questions(video_path)
+
+        video_id = vid.replace(".mp4", "")
+
+        all_results[video_id] = answers
+
+    return all_results
 ############################################
 # RUN
 ############################################
 
 def main():
 
-    question = "What color is the traffic light?"
+    results = process_dataset()
 
-    for video in os.listdir(VIDEO_DIR):
+    with open("submission.json", "w") as f:
+        json.dump(results, f, indent=2)
 
-        path = os.path.join(VIDEO_DIR, video)
-
-        print("Processing:", video)
-
-        ans = process_video(path, question)
-
-        print("Answer:", ans)
-        print()
-
+    print("Saved submission.json")
 
 if __name__ == "__main__":
     main()
