@@ -1,0 +1,323 @@
+{
+  "Q1.a": {
+    "question": "What was the time of day during the incident?",
+    "answers": {
+      "Day": 0,
+      "Dawn (sunrise)": 1,
+      "Dusk (sunset)": 2,
+      "Night": 3,
+      "Unknown": -1
+    }
+  },
+  "Q1.b": {
+    "question": "What were the weather conditions during the incident?",
+    "answers": {
+      "Sunny/Clear": 0,
+      "Cloudy": 1,
+      "Rainy": 2,
+      "Partly Cloudy": 3,
+      "Snowy": 4,
+      "Foggy": 5,
+      "Unknown": -1
+    }
+  },
+  "Q2": {
+    "question": "What was the lighting condition at the time of the incident?",
+    "answers": {
+      "Daylight": 0,
+      "Headlights only": 1,
+      "Sunrise/Sunset – Early morning low-light, sun beginning to rise": 2,
+      "Streetlights on": 4,
+      "Unknown": -1
+    }
+  },
+  "Q3.a": {
+    "question": "Where did the incident take place (traffic environment)?",
+    "answers": {
+      "Urban area – City streets with dense buildings, intersections, and traffic": 0,
+      "Suburban area – Residential or mixed-use commercial/residential area": 2,
+      "Rural area – Open or undeveloped roadside with sparse traffic": 3,
+      "Unknown": -1
+    }
+  },
+  "Q3.b": {
+    "question": "What facilities were present in the surrounding environment?",
+    "answers": {
+      "Urban area - skyscrapers, businesses, etc.": 1,
+      "Construction zone / Work area – Road partially blocked or altered due to work": 2,
+      "Residential Area": 3,
+      "Parking lot / Gas station – Off-road traffic environment with vehicles maneuvering": 4,
+      "Near a school/college – Educational zone with potential pedestrian activity": 5,
+      "Unknown": -1
+    }
+  },
+  "Q4.a": {
+    "question": "What is the road configuration at the incident time?",
+    "answers": {
+      "Highway": 1,
+      "Intersection": 2,
+      "T-junction / Y-junction": 3,
+      "Residential street": 4,
+      "Bridge / Overpass / Underpass": 5,
+      "Roundabout / Traffic circle": 6,
+      "Exit/Entrance ramp": 7,
+      "Unknown": -1
+    }
+  },
+  "Q4.b": {
+    "question": "Road lane configuration",
+    "answers": {
+      "Two-way divided": 0,
+      "Two-way not divided": 1,
+      "One-way": 2,
+      "Unknown": -1
+    }
+  },
+  "Q4.c": {
+    "question": "Lane direction of Ego-Car at time of incident",
+    "answers": {
+      "Right": 0,
+      "Left": 1,
+      "Middle": 2,
+      "Unknown": -1
+    }
+  },
+  "Q5.a": {
+    "question": "What is the category of the incident?",
+    "answers": {
+      "Pedestrian/Cyclist/Vulnerable Road Users": 0,
+      "Vehicle-to-Vehicle": 1,
+      "Animals / Objects": 2,
+      "No Collision": 3,
+      "Barriers / Fixed Objects": 5,
+      "Vehicle Loss of Control / Rollover": 6,
+      "Unknown": -1
+    }
+  },
+  "Q5.b": {
+    "question": "Primary Incident Entity (Who caused or could have prevented the incident)?",
+    "answers": {
+      "Pedestrian": 0,
+      "Ego-car": 1,
+      "Animal": 2,
+      "No collision": 3,
+      "Another Vehicle": 5,
+      "Cyclist": 6,
+      "Flying Object": 10,
+      "Smoke": 13,
+      "Object on the road": 29,
+      "Unknown": -1
+    }
+  },
+  "Q5.c": {
+    "question": "If Primary Incident Entity is a vehicle, what type of vehicle is it?",
+    "answers": {
+      "Small Car": 0,
+      "No collision": 1,
+      "Truck": 2,
+      "Bicycle": 3,
+      "Bicycle Cart": 4,
+      "Motorcycle": 5,
+      "Scooter": 6,
+      "SUV": 8,
+      "Bus": 9,
+      "Unknown": -1
+    }
+  },
+  "Q5.e": {
+    "question": "Primary Entity Behavior",
+    "answers": {
+      "Crossing": 0,
+      "Speeding": 1,
+      "Driving normally": 3,
+      "Overtaking/Changing Lanes": 4,
+      "Turning": 6,
+      "Walking": 7,
+      "Stopped": 8,
+      "Swerving": 10,
+      "Ignoring traffic signal": 11,
+      "Lost control": 12,
+      "Fell Down": 13,
+      "Rolling through": 14,
+      "Failure to yield": 15,
+      "Flying": 16,
+      "Rolling over": 17,
+      "Stationary": 18,
+      "Fallen into the road": 19,
+      "Unknown": -1
+    }
+  },
+  "Q5.f": {
+    "question": "Secondary Incident Entity (Victim, secondary cause or entity that was hit)",
+    "answers": {
+      "Cyclist": 0,
+      "Ego-car": 1,
+      "Another Vehicle": 2,
+      "Object or Barrier": 3,
+      "Pedestrian": 4,
+      "Scooter": 5,
+      "Animal": 6,
+      "Unknown": -1
+    }
+  },
+  "Q5.g": {
+    "question": "If Secondary Incident Entity is a vehicle, what type of vehicle is it?",
+    "answers": {
+      "Scooter": 0,
+      "Small Car": 1,
+      "Bicycle": 2,
+      "Truck": 3,
+      "SUV": 4,
+      "Bus": 5,
+      "Unknown": -1
+    }
+  },
+  "Q5.i": {
+    "question": "Secondary Entity Behavior",
+    "answers": {
+      "Driving normally": 0,
+      "Swerving": 1,
+      "Fixed Position (also for stationary cars)": 2,
+      "Speeding": 3,
+      "Crossing": 4,
+      "Turning": 5,
+      "Lost control": 6,
+      "Failure to yield": 7,
+      "Flying": 8,
+      "Stopped": 9,
+      "Fallen onto road": 10,
+      "Overtaking/Changing Lanes": 11,
+      "Rolling over": 13,
+      "UTurn": 14,
+      "Unknown": -1
+    }
+  },
+  "Q5.j": {
+    "question": "Incident peak",
+    "answers": {
+      "Near-miss": 0,
+      "No collision": 1,
+      "Collision": 2,
+      "No effect": 3,
+      "Avoided in advance": 4,
+      "Chain-reaction": 5,
+      "Unknown": -1
+    }
+  },
+  "Q6.a": {
+    "question": "How could this Incident most likely have been prevented by the Primary Entity?",
+    "answers": {
+      "Primary Entity was traveling unsafe": 0,
+      "No Fault: Primary Entity was behaving normally but could not prevent incident": 1,
+      "Primary Entity could have maneuvered but did not": 2,
+      "No Incident": 3,
+      "No Fault: Primary Entity avoided Incident": 4,
+      "Primary Entity is not capable of preventing accident (animal/inanimate)": 5,
+      "Primary entity had defect (object/part fell off, equipment failure)": 6,
+      "Unknown": -1
+    }
+  },
+  "Q6.b": {
+    "question": "How could this incident most likely have been prevented by the Secondary Entity?",
+    "answers": {
+      "No Fault: Secondary Entity avoided Incident": 0,
+      "No Fault: Secondary Entity was behaving normally but could not prevent accident": 1,
+      "Secondary Entity is not capable of preventing accident (animal/inanimate)": 2,
+      "Secondary Entity was traveling unsafe": 3,
+      "No Incident": 4,
+      "Secondary entity had defect (object/part fell off, equipment failure)": 5,
+      "Secondary Entity could have maneuvered but did not": 6,
+      "Unknown": -1
+    }
+  },
+  "Q7.a": {
+    "question": "If the Primary Entity was a vehicle, where on the vehicle did the initial impact occur?",
+    "answers": {
+      "No collision": 0,
+      "Front": 1,
+      "Left side": 2,
+      "Right side": 4,
+      "Rear": 5,
+      "Top/Roof": 6,
+      "Unknown": -1
+    }
+  },
+  "Q7.b": {
+    "question": "If the Primary Entity was a vehicle, what side of the impacted area was hit?",
+    "answers": {
+      "No collision": 0,
+      "Left Corner": 2,
+      "Front": 3,
+      "Right Side of Vehicle": 4,
+      "Right Corner": 5,
+      "Undercarriage / Bottom": 6,
+      "Left Side of Vehicle": 7,
+      "Unknown": -1
+    }
+  },
+  "Q7.c": {
+    "question": "If the Secondary Entity was a vehicle, where on the vehicle did the initial impact occur?",
+    "answers": {
+      "No Collision": 0,
+      "Right side": 1,
+      "Front": 2,
+      "Top/Roof": 3,
+      "Left side": 5,
+      "Rear": 6,
+      "Unknown": -1
+    }
+  },
+  "Q7.d": {
+    "question": "If the Secondary Entity was a vehicle, what side of the impacted area was hit?",
+    "answers": {
+      "No collision": 0,
+      "Left Corner": 1,
+      "Right Corner": 3,
+      "Left Side of the Vehicle": 4,
+      "Roof/Top": 5,
+      "Ride Side of Vehicle": 6,
+      "Front Grill/Bumper": 7,
+      "Mid-Right Side": 9,
+      "Mid-Left Side of Truck": 10,
+      "Undercarriage / Bottom": 11,
+      "Rear": 12,
+      "Unknown": -1
+    }
+  },
+  "Q8": {
+    "question": "What traffic control or road sign is present at the incident location?",
+    "answers": {
+      "Yield / Give way sign": 0,
+      "None visible": 1,
+      "Traffic light": 3,
+      "Construction / Work zone sign": 4,
+      "No entry / One-way sign": 5,
+      "Pedestrian crossing": 6,
+      "Traffic light Ahead Sign": 7,
+      "School zone / Warning sign": 8,
+      "Speed limit sign": 9,
+      "Stop sign": 10,
+      "Railroad crossing sign / gate": 11,
+      "Unknown": -1
+    }
+  },
+  "Q9.a": {
+    "question": "What was the road surface condition during the incident?",
+    "answers": {
+      "Dry pavement": 0,
+      "Wet road": 1,
+      "Snow / Ice covered": 2,
+      "Debris / Mud on road": 3,
+      "Unknown": -1
+    }
+  },
+  "Q9.b": {
+    "question": "What type of road material is the vehicle driving on?",
+    "answers": {
+      "Asphalt / Blacktop": 0,
+      "Concrete": 1,
+      "Gravel / Dirt": 3,
+      "Unknown": -1
+    }
+  }
+}
