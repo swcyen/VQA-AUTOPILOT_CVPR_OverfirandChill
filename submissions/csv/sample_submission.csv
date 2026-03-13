@@ -1,0 +1,27 @@
+video_id,"A)Weather:
+Q1.a: What was the time of day during the incident?","A)Weather:
+Q1.b: What were the weather conditions during the incident?","B) Light Condition:
+Q2: What was the lighting condition at the time of the incident?","C) Traffic Environment:
+Q3.a: Where did the incident take place (traffic environment)?","C) Traffic Environment:
+Q3.b: What facilities were present in the surrounding environment?","D) Road Configuration
+Q4.a: What is the road configuration at the incident time?","D) Road Configuration
+Q4.b: Road lane configuration:","D) Road Configuration
+Q4.c: Lane direction of Ego-Car at time of incident:","E) Incident Type
+Q5.a: What is the category of the incident?","E) Incident Type
+Q5.b: Primary Incident Entity (Who caused or could have prevented the incident)?","E) Incident Type
+Q5.c: If Primary Incident Entity is a vehicle, what type of vehicle is it?","E) Incident Type
+Q5.e: Primary Entity Behavior:","E) Incident Type
+Q5.f Secondary Incident Entity (Victim, secondary cause or entity that was hit):","E) Incident Type:
+Q5.g: If Secondary Incident Entity is a vehicle, what type of vehicle is it?","E) Incident Type
+Q5.i: Secondary Entity Behavior:","E) Incident Type
+Q5.j: Incident peak","F) Incident Prevention Measure
+Q6.a: How could this Incident most likely have been prevented by the Primary Entity?","F) Incident Prevention Measure
+Q6.b: How could this incident most likely have been prevented by the Secondary Entity?","G)Initial Point of Impact
+Q7.a: If the Primary Entity was a vehicle, where on the vehicle did the initial impact occur?","G)Initial Point of Impact
+Q7.b: If the Primary Entity was a vehicle, what side of the impacted area was hit?","G)Initial Point of Impact
+Q7.c: If the Secondary Entity was a vehicle, where on the vehicle did the initial impact occur?","G)Initial Point of Impact
+Q7.d: If the Secondary Entity was a vehicle, what side of the impacted area was hit?","H) Traffic Control & Signage Presence:
+Q8: What traffic control or road sign is present at the incident location?","I) Road Surface & Material Condition
+Q9.a: What was the road surface condition during the incident?","I) Road Surface & Material Condition
+Q9.b: What type of road material is the vehicle driving on?"
+
